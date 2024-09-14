@@ -1,5 +1,6 @@
 package com.example.farmaciarest.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import jakarta.persistence.*;
@@ -19,14 +20,16 @@ public class ItemPedido {
     private Integer id;
 
     //@JsonUnwrapped
+    //@JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "medicamento_id")
+    @JoinColumn(name = "medicamento_id", nullable = false)
     private Medicamento medicamento;
+
+    private int quantidade;
 
     //@JsonUnwrapped
     @ManyToOne
-    //@JoinColumn(name = "pedido_id")
+    @JoinColumn(name = "pedido_id", nullable = false)
     private Pedido pedido;
 
-    private int quantidade;
 }

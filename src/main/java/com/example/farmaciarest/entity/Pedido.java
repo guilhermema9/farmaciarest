@@ -26,6 +26,6 @@ public class Pedido {
     //@JsonUnwrapped
     @JsonIgnore
     //@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itensPedido = new ArrayList<>();
 }
